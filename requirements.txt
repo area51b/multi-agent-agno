@@ -1,0 +1,7 @@
+agno
+fastapi
+google-genai
+python-dotenv
+yfinance
+sqlalchemy
+uvicorn
