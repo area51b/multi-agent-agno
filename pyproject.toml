@@ -6,7 +6,8 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "agno>=1.6.4",
-    "fastapi>=0.115.13",
+    "duckduckgo-search>=8.0.4",
+    "fastapi[standard]>=0.115.13",
     "google-genai>=1.22.0",
     "python-dotenv>=1.1.1",
     "sqlalchemy>=2.0.41",

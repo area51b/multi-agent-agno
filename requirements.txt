@@ -5,3 +5,5 @@ python-dotenv
 yfinance
 sqlalchemy
 uvicorn
+duckduckgo-search
+fastapi[standard]

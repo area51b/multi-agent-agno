@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agno-agent-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agno-agent
+  template:
+    metadata:
+      labels:
+        app: agno-agent
+    spec:
+      containers:
+        - name: agno-agent
+          image: yourname/agno-financial-agent:latest
+          ports:
+            - containerPort: 7777
+          env:
+            - name: DEFAULT_MODEL
+              valueFrom:
+                secretKeyRef:
+                  name: agno-secrets
+                  key: DEFAULT_MODEL
+            - name: AGENT_DB_PATH
+              value: /data/agents.db
+          volumeMounts:
+            - name: agent-db
+              mountPath: /data
+      volumes:
+        - name: agent-db
+          emptyDir: {}  # You can replace with PVC for persistence
